@@ -5,6 +5,9 @@
 
 using namespace std;
 
+// Remove duplicated cahracters
+// The point is in the bitset to tag the chars already matched.
+
 void duplicate_removal(string& s) {
     const size_t bits = sizeof(string::value_type);
     bitset<bits> letters;

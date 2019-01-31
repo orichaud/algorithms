@@ -5,6 +5,9 @@
 
 using namespace std;
 
+// Check the string is an anagram
+// The point is in the use of arrays to count occurrences.
+
 bool anagram(const string& s1, const string& s2) {
     size_t l1 = s1.length();
     if(l1 != s2.length())

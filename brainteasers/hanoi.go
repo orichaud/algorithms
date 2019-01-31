@@ -1,5 +1,8 @@
 package main
 
+// Hanoi towers, no optim
+// https://en.wikipedia.org/wiki/Tower_of_Hanoi
+
 import (
 	"fmt"
 )

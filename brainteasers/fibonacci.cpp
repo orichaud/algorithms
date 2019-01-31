@@ -1,9 +1,14 @@
 #include <iostream>
 #include <unordered_map>
 
+// Fibonacci number
+// https://en.wikipedia.org/wiki/Fibonacci_number
+
 using namespace std;
 
 template <unsigned int N> struct fibo;
+
+// static template instantiation will allow compile time computation of Fibo(n)
 
 template <> struct fibo<0> {
     static const unsigned int n = 0;
@@ -19,6 +24,8 @@ template <unsigned int N> struct fibo {
     static const unsigned int n = N;
     static const unsigned int value = fibo<N-1>::value + fibo<N-2>::value;
 };
+
+// Avoid recursion and reuse previous values during Fibo(n) computation
 
 class fibo_compute {
 public:

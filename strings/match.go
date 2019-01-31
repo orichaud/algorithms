@@ -3,6 +3,9 @@ package main
 import "fmt"
 import "github.com/golang-collections/collections/stack"
 
+// Validate nested  opening and closing sequences of brackets and parenthesis.
+// The point of the algorithm is in the introduction of a stack to avoid any form of exponential reccursion.
+
 func check(s string) bool {
 	closings := map[rune]rune{
 		'(': ')',

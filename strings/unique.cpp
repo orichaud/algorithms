@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// Check the string only contains unique characters
+
 bool check(const string& s) {
     bitset<256> set;
     for(auto c: s) {

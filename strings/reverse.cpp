@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// efficient string reverse based on pointer arithmetic
+
 void reverse(char *s) {
     unsigned int l =  strlen(s);
     if(l > 0) {
