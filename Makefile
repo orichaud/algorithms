@@ -1,6 +1,7 @@
 all:
 	-@ mkdir -p bin
 	-@ cd strings && make
+	-@ cd sorts && make
 	-@ cd brainteasers && make
 
 run: all
