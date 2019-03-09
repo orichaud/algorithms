@@ -1,6 +1,5 @@
 CC=/usr/local/bin/g++-8
 CCFLAGS=-g -Wall
-GOFLAGS=
 BINDIR=../bin
 
 SRC=$(shell ls *.cpp)
