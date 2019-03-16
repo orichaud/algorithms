@@ -1,0 +1,10 @@
+CC := /usr/local/bin/g++-8
+CCFLAGS := -g -O -Wall -Wextra -Werror
+GO := /usr/local/bin/go
+GOFLAGS := 
+BINDIR := ../bin
+MAKE := /usr/bin/make
+RM := rm
+MV := MV
+MKDIR := mkdir
+SUBDIRS := brainteasers lists strings sorts 

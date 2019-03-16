@@ -1,11 +1,16 @@
-CC=/usr/local/bin/g++-8
-CCFLAGS=-g -Wall
-GOFLAGS=
-GO=/usr/local/bin/go
-BINDIR=../bin
+include ../Common.mk
 
-SRC=$(shell ls *.cpp)
-brainteasers: $(SRC)
-	-@ echo "\033[00;31mCompiling $(SRC)\033[0m"
-	$(CC) $(CCFLAGS) -o $(BINDIR)/remove_node_cpp remove_node.cpp
-	$(CC) $(CCFLAGS) -o $(BINDIR)/tree_builder_cpp tree_builder.cpp
+APP := $(shell basename $$(pwd))
+SRC := $(shell ls *.cpp)
+OBJ=$(subst .cpp,_cpp,$(SRC))
+
+%_cpp : %.cpp
+	$(CC) $(CCFLAGS) -o $(BINDIR)/$(APP)/$*_cpp $<
+
+all: dir $(SRC) $(OBJ)
+	
+dir:
+	$(MKDIR) -p $(BINDIR)/$(APP)
+
+clean: 
+	$(RM) -rf $(BINDIR)/$(APP)

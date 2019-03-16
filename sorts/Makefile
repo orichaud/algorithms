@@ -1,9 +1,16 @@
-CC=/usr/local/bin/g++-8
-CCFLAGS=-g -Wall
-BINDIR=../bin
+include ../Common.mk
 
-SRC=$(shell ls *.cpp)
-all: $(SRC)
-	-@ echo "\033[00;31mCompiling $(SRC)\033[0m"
-	$(CC) $(CCFLAGS) -o $(BINDIR)/insertion_sort_cpp insertion_sort.cpp
-	$
+APP := $(shell basename $$(pwd))
+SRC := $(shell ls *.cpp)
+OBJ=$(subst .cpp,_cpp,$(SRC))
+
+%_cpp : %.cpp
+	$(CC) $(CCFLAGS) -o $(BINDIR)/$(APP)/$*_cpp $<
+
+all: dir $(SRC) $(OBJ)
+	
+dir:
+	$(MKDIR) dir -p $(BINDIR)/$(APP)
+
+clean: 
+	$(RM) -rf $(BINDIR)/$(APP)

@@ -1,14 +1,20 @@
-all:
-	-@ mkdir -p bin
-	-@ cd strings && make
-	-@ cd sorts && make
-	-@ cd brainteasers && make
+include Common.mk
 
-run: all
-	-@ for exec in $$(find ./bin -type f -perm +111); do \
+BINDIR := ./bin
+
+all: $(SUBDIRS)
+
+$(SUBDIRS):
+	-@ echo "\033[00;31m++ Building $@\033[0m" ; \
+	$(MAKE) -C $@
+
+.PHONY: all $(SUBDIRS)
+
+run: all 
+	-@ for exec in $$(find $(BINDIR) -type f -perm +111); do \
 		echo "\033[00;31m++ Running $$exec\033[0m" ; \
 		time eval "$$exec" ; \
 	done
 
 clean:
-	-@ rm -rf bin
+	$(RM) -rf $(BINDIR) 
