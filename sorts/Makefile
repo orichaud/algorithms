@@ -10,7 +10,7 @@ OBJ=$(subst .cpp,_cpp,$(SRC))
 all: dir $(SRC) $(OBJ)
 	
 dir:
-	$(MKDIR) dir -p $(BINDIR)/$(APP)
+	$(MKDIR) -p $(BINDIR)/$(APP)
 
 clean: 
 	$(RM) -rf $(BINDIR)/$(APP)
