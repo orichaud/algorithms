@@ -5,7 +5,7 @@ BINDIR := ./bin
 all: $(SUBDIRS)
 
 $(SUBDIRS):
-	-@ echo "\033[00;31m++ Building $@\033[0m" ; \
+	-@ echo "\033[00;31m++ Building $@\033[0m" 
 	$(MAKE) -C $@
 
 .PHONY: all $(SUBDIRS)
