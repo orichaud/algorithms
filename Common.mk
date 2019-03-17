@@ -8,4 +8,3 @@ MAKE := /usr/bin/make
 RM := rm
 MV := mv
 MKDIR := mkdir
-SUBDIRS := brainteasers lists strings sorts 

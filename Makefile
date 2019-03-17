@@ -1,20 +1,24 @@
 include Common.mk
 
 BINDIR := ./bin
+SUBDIRS := brainteasers lists strings sorts
+TESTS := $(shell find $(BINDIR) -type f -perm +111)
 
-all: $(SUBDIRS)
+all: build run
+.PHONY: all
 
+build: $(SUBDIRS)
+.PHONY: build $(SUBDIRS)
 $(SUBDIRS):
 	-@ echo "\033[00;31m++ Building $@\033[0m" 
-	$(MAKE) -C $@
+	$(MAKE) -j -C $@
 
-.PHONY: all $(SUBDIRS)
+run: $(TESTS)
+.PHONY: run $(TESTS) 
+$(TESTS):
+	-@ echo "\033[00;31m++ Running $@\033[0m" ;
+	-@ time -p $@
 
-run: all 
-	-@ for exec in $$(find $(BINDIR) -type f -perm +111); do \
-		echo "\033[00;31m++ Running $$exec\033[0m" ; \
-		time eval "$$exec" ; \
-	done
-
+.PHONY: clean
 clean:
 	$(RM) -rf $(BINDIR) 
