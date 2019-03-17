@@ -1,5 +1,5 @@
 # algorithms
 
 ```sh
-make run
+make clean build run
 ```
