@@ -1,7 +1,7 @@
 include Common.mk
 
 BINDIR := ./bin
-SUBDIRS := brainteasers lists strings sorts
+SUBDIRS := brainteasers lists strings sorts arrays
 TESTS := $(shell find $(BINDIR) -type f -perm +111)
 
 all: build run
