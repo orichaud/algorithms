@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -9,15 +9,12 @@ typedef std::vector<int> vect_int;
 // remove duplicated numbers from array
 
 vect_int remove_duplicates(const vect_int& vect) {
-    unordered_map<int, int> counters;
+    unordered_set<int> counters;
     vect_int result;
     for(auto v: vect) {
         auto found = counters.find(v);
         if(found == counters.end()) {
             result.push_back(v);
-            counters[v] = 1;
-        } else {
-            counters[v]++;
         }
     }
     return result;
