@@ -100,5 +100,6 @@ int main()
     cout << t << endl;
     ivector out;
     t.list(out);
-    for(auto v: out) cout << v  << " ";
+    for(auto v: out) 
+        cout << v  << " ";
 }

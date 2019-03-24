@@ -1,7 +1,8 @@
-include Common.mk
+MAKE := make
+RM := rm
 
 BINDIR := ./bin
-SUBDIRS := brainteasers lists strings sorts arrays
+SUBDIRS := brainteasers lists strings sorts arrays coroutines
 TESTS := $(shell find $(BINDIR) -type f -perm +111)
 
 all: build run

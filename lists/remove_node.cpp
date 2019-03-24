@@ -60,4 +60,5 @@ int main()
     for(snode* head = nodes[0]; head != nullptr; head = head->next) {
         print(head);
     }
+    for_each(nodes.begin(), nodes. end(), [] (auto n) { delete n; } );
 }

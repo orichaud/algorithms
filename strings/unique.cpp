@@ -24,8 +24,7 @@ int main() {
     };
     
     for(auto s: strs) {
-        cout << s << ":";
-        cout << (check(s) ? "OK" : "KO") << endl;
+        cout << s << ":" << (check(s) ? "OK" : "KO") << endl;
     }
     return 0;
 }
