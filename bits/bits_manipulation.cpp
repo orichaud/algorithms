@@ -12,17 +12,19 @@ int main()
         0b00101100,
         0b00000010,
         0b00011100,
-        0b00000111
+        0b00000111,
+        0b10000100
     };
     for(const auto x: values) {
-        unsigned long y = x & ~(x - 1);
-
+        // keep lowest bit to 1, remove all above 
         cout << "1 - x=" << bitset<bits>(x) 
-             << ", (x -1) = " <<  bitset<bits>(x -1)
-             << ", ~(x -1) = " <<  bitset<bits>(~(x -1))
-             << ", x & ~(x - 1) = " << bitset<bits>(y) << endl;
+             << ", (x - 1) = " <<  bitset<bits>(x -1)
+             << ", ~(x - 1) = " <<  bitset<bits>(~(x -1))
+             << ", x & ~(x - 1) = " << bitset<bits>(x & ~(x - 1)) << endl;
 
-        cout << "3 - x=" << bitset<bits>(x) 
-             << ", x ^ 1 = " <<  bitset<bits>(x ^ 1) << endl;
+        // clear lowest bit set to 1, keep all above
+        cout << "2 - x=" << bitset<bits>(x) 
+             << ", (x - 1) = " <<  bitset<bits>(x -1)
+             << ", x & (x - 1) = " << bitset<bits>(x & (x - 1)) << endl;
     }
 }
