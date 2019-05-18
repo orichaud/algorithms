@@ -2,7 +2,7 @@ MAKE := make
 RM := rm
 
 BINDIR := ./bin
-SUBDIRS := brainteasers lists strings sorts arrays coroutines
+SUBDIRS := brainteasers lists strings sorts arrays coroutines bits
 TESTS := $(shell find $(BINDIR) -type f -perm +111)
 
 all: build run
