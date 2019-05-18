@@ -11,7 +11,7 @@ unsigned long brute_force_reverse(unsigned long v) {
     unsigned long r = 0;
     // progressively build the 2 extremities ith and <bits>-i th positions
     // assuming even number of bits
-    unsigned short n = bits / 2;
+    unsigned int n = bits / 2;
     for(unsigned int i = 0; i<n; ++i) {
         unsigned int j = bits - 1 - i;
         r |= (((v >> i) & 1) << j) | (((v >> j) & 1) << i); 
