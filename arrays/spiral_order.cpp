@@ -47,32 +47,33 @@ void internal_recursive_spiral_order(matrix_t& m, size_t size, value_t value) {
 
     size_t row = (m.size() - size) / 2;
     size_t col = row;
+    cout << "(row,col)=("<<row<<","<<col<<")"<<endl;
     if(size == 1) {
         m[row][col] = value;
         return;
     }
     for(size_t i=0; i<size-1; ++i)
-        m[row][col++] = value++; // Right
+        m[row][col++] = value--; // Right
     for(size_t i=0; i<size-1; ++i)
-        m[row++][col] = value++; // Down
+        m[row++][col] = value--; // Down
     for(size_t i=0; i<size-1; ++i)
-        m[row][col--] = value++; // left
+        m[row][col--] = value--; // left
     for(size_t i=0; i<size-1; ++i)
-        m[row--][col] = value++; // Up
+        m[row--][col] = value--; // Up
 
     internal_recursive_spiral_order(m, size-2, value);
 }
 
 matrix_t recursive_spiral_order(value_t n) {
     matrix_t m(n, row_t(n, 0));
-    internal_recursive_spiral_order(m, m.size(), n);
+    internal_recursive_spiral_order(m, m.size(), n * n);
     return m;
 }
 
 int main() {
-    value_t order = 3;
+    value_t order = 4;
     cout << "recursive (the simplest way)" << endl;
-    cout << spiral_order(order) << endl;
+    cout << recursive_spiral_order(order) << endl;
     cout << endl;
     cout << "iterative (the hard way)" << endl;
     cout << spiral_order(order) << endl;
