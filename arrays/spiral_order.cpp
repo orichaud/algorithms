@@ -47,7 +47,7 @@ void internal_recursive_spiral_order(matrix_t& m, size_t size, value_t value) {
 
     size_t row = (m.size() - size) / 2;
     size_t col = row;
-    if(size == 1){
+    if(size == 1) {
         m[row][col] = value;
         return;
     }
