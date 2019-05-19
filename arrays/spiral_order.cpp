@@ -47,20 +47,35 @@ void internal_recursive_spiral_order(matrix_t& m, size_t size, value_t value) {
 
     size_t row = (m.size() - size) / 2;
     size_t col = row;
-    cout << "(row,col)=("<<row<<","<<col<<")"<<endl;
     if(size == 1) {
         m[row][col] = value;
         return;
     }
-    for(size_t i=0; i<size-1; ++i)
-        m[row][col++] = value--; // Right
-    for(size_t i=0; i<size-1; ++i)
-        m[row++][col] = value--; // Down
-    for(size_t i=0; i<size-1; ++i)
-        m[row][col--] = value--; // left
-    for(size_t i=0; i<size-1; ++i)
-        m[row--][col] = value--; // Up
 
+    // Process borders of the matrix (the x)
+    // x x x x
+    // x o o x
+    // x o o x
+    // x x x x
+
+    for(size_t i=0; i<size-1; ++i, ++col) {
+        m[row][col] = value--; // top row, to the right
+    }
+    for(size_t i=0; i<size-1; ++i, ++row) {
+        m[row][col] = value--; // last col, down to bottom
+    }
+    for(size_t i=0; i<size-1; ++i, --col) {
+        m[row][col] = value--; // last row, to the left
+    }
+    for(size_t i=0; i<size-1; ++i, --row) {
+        m[row][col] = value--; // first column, bottom up
+    }
+
+    // extract englobed matrix (the o)
+    // x x x x
+    // x o o x
+    // x o o x
+    // x x x x
     internal_recursive_spiral_order(m, size-2, value);
 }
 
